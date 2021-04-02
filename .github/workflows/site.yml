@@ -32,5 +32,5 @@ jobs:
             - name: Deploy site
               run: |
                   export CI=true
-                  cloudbase login --apiKeyId $TCB_ID --apiKey $TCB_KEY
+                  cloudbase login --apiKeyId ${{ secrets.TCB_ID }} --apiKey ${{ secrets.TCB_KEY }}
                   tcb framework deploy
