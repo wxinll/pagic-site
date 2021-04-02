@@ -20,17 +20,23 @@ jobs:
               with:
                   deno-version: v1.6.0
 
-            - name: Setup Node
-              uses: actions/setup-node@v2.1.5
+            # - name: Setup Node
+            #   uses: actions/setup-node@v2.1.5
+            #   with:
+            #       node-version: '12.x'
+
+            # - name: Install CloudBase Framework
+            #   run: |
+            #       npm install -g @cloudbase/cli@latest
+
+            # - name: Deploy site
+            #   run: |
+            #       export CI=true
+            #       cloudbase login --apiKeyId ${{ secrets.TCB_ID }} --apiKey ${{ secrets.TCB_KEY }}
+            #       tcb framework deploy
+
+            - name: Deploy to Tencent CloudBase
+              uses: TencentCloudBase/cloudbase-action@v2
               with:
-                  node-version: '12.x'
-
-            - name: Install CloudBase Framework
-              run: |
-                  npm install -g @cloudbase/cli@latest
-
-            - name: Deploy site
-              run: |
-                  export CI=true
-                  cloudbase login --apiKeyId ${{ secrets.TCB_ID }} --apiKey ${{ secrets.TCB_KEY }}
-                  tcb framework deploy
+                  secretId: ${{secrets.TCB_ID}}
+                  secretKey: ${{secrets.TCB_KEY}}
