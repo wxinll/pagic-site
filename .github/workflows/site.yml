@@ -40,3 +40,4 @@ jobs:
               with:
                   secretId: ${{secrets.TCB_ID}}
                   secretKey: ${{secrets.TCB_KEY}}
+                  envId: swx-cloudbase-9gz9w31w54c2a330
